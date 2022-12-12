@@ -33,10 +33,12 @@ Route::post("utilisateur/ajout-user", [UtilisateurController::class, 'store'])->
 Route::get("utilisateur/deconnexion", [UtilisateurController::class, 'deconnexion'])->middleware('auth:sanctum');
 Route::get('utilisateur/user-data', [UtilisateurController::class, 'dataUser'])->middleware('auth:sanctum');
 Route::post('utilisateur/delete-user', [UtilisateurController::class, 'destroy'])->middleware('auth:sanctum');
+Route::post('utilisateur/update', [UtilisateurController::class, 'update'])->middleware('auth:sanctum');
 
 // Secteur
 Route::get('secteur/index', [SecteurContoller::class, 'index'])->middleware('auth:sanctum');
 Route::post('secteur/ajout-secteur', [SecteurContoller::class, 'store'])->middleware('auth:sanctum');
+Route::post('secteur/delete-secteur', [SecteurContoller::class, 'destroy'])->middleware('auth:sanctum');
 
 
 // code administration 

@@ -20,8 +20,8 @@ class CodeAdministrationController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'code_admin' => 'int|required',
-            'id_admin' => "int|required"
+            'code_admin' => 'string|required',
+            'id_admin' => "string|required"
         ];
 
         $validator = Validator::make($request->all(), $rules);
@@ -40,7 +40,7 @@ class CodeAdministrationController extends Controller
             return response()->json(['message' => 'Code créer avec succes'], 200);
         } catch (\Throwable $th) {
             return response()->json([
-                'response' =>  "Error :" . $request->code_admin,
+                'response' =>  "Error :" . $request->id_admin,
                 'message' =>  'Code existant.', 'error' => '1'
             ], 400);
         }

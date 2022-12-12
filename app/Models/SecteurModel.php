@@ -12,7 +12,6 @@ class SecteurModel extends Model
     protected $fillable = [
         "designation_secteur",
         "description_secteur",
-        "id_users"
-
+        "nom_chef_secteur"
     ];
 }

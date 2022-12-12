@@ -17,11 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string("designation_secteur")->unique();
             $table->string("description_secteur");
-            $table->string("id_users");
+            $table->string("nom_chef_secteur")->unique();
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

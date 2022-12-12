@@ -69,9 +69,9 @@ class UtilisateurController extends Controller
         return response()->json(['Utilisateur' => $utilisateur, 'error' => '1']);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $Utilisateur = User::find($id);
+        $Utilisateur = User::find($request->id);
         if (is_null($Utilisateur))
             return response()->json(['message' => 'Utilisateur non disponible', 'error' => '1'], 400);
         $rules = [

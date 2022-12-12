@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class AbonneModel extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        ""
+    ];
 }

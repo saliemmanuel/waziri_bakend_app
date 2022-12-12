@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string("nom_abonne");
             $table->string("prenom_abonne");
-            $table->string("cni");
-            $table->string("telephone");
+            $table->string("cni_abonne");
+            $table->string("telephone_abonne");
             $table->string("description_zone_abonne");
             $table->unsignedBigInteger('user_id')->unique();
             $table->foreign('user_id')->references('id')->on('users')
