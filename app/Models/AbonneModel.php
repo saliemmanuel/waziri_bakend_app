@@ -9,6 +9,12 @@ class AbonneModel extends Model
 {
     use HasFactory;
     protected $fillable = [
-        ""
+        "nom_abonne",
+        "prenom_abonne",
+        "cni_abonne",
+        "telephone_abonne",
+        "description_zone_abonne",
+        "id_chef_secteur",
+        "type_abonnement",
     ];
 }
