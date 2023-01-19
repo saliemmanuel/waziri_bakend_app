@@ -20,10 +20,12 @@ return new class extends Migration
             $table->string("cni_abonne");
             $table->string("telephone_abonne");
             $table->string("description_zone_abonne");
+            $table->string("secteur_abonne");
             $table->unsignedBigInteger('id_chef_secteur');
             $table->string("type_abonnement");
-            $table->foreign('id_chef_secteur')->references('id')->on('users')
-                ->onDelete('cascade');
+            $table->unsignedBigInteger("id_type_abonnement");
+            $table->foreign('id_chef_secteur')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('id_type_abonnement')->references('id')->on('type_abonnement_models')->onDelete('cascade');
             $table->timestamps();
         });
     }

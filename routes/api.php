@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AbonneController;
 use App\Http\Controllers\CodeAdministrationController;
+use App\Http\Controllers\FactureController;
 use App\Http\Controllers\SecteurContoller;
 use App\Http\Controllers\TypeAbonnementController;
 use App\Http\Controllers\UtilisateurController;
@@ -47,5 +49,15 @@ Route::post('code/get-code', [CodeAdministrationController::class, 'show'])->mid
 
 // Type abonnement
 Route::get('type-abonnemnt/index', [TypeAbonnementController::class, 'index'])->middleware('auth:sanctum');
-Route::post('type-abonnemnt/delete-type', [TypeAbonnementController::class, 'destroy'])->middleware('auth:sanctum');
 Route::post('type-abonnemnt/ajout-type', [TypeAbonnementController::class, 'store'])->middleware('auth:sanctum');
+Route::post('type-abonnemnt/delete-type', [TypeAbonnementController::class, 'destroy'])->middleware('auth:sanctum');
+
+// Abonnés
+Route::post('abonne/index', [AbonneController::class, 'index'])->middleware('auth:sanctum');
+Route::post('abonne/ajout-abonne', [AbonneController::class, 'store'])->middleware('auth:sanctum');
+Route::post('abonne/delete-abonne', [AbonneController::class, 'destroy'])->middleware('auth:sanctum');
+
+// Les facture 
+Route::post('facture/index', [FactureController::class, 'index'])->middleware('auth:sanctum');
+Route::post('facture/generate-facture', [FactureController::class, 'genererFacture'])->middleware('auth:sanctum');
+Route::post('facture/payement', [FactureController::class, 'update'])->middleware('auth:sanctum');

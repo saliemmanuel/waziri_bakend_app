@@ -15,12 +15,13 @@ class CustomAbonneSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 0; $i < 15; $i++) DB::table('abonne_models')->insert([
+        for ($i = 0; $i < 6; $i++) DB::table('abonne_models')->insert([
             "nom_abonne" => fake()->name(),
             "prenom_abonne" => fake()->lastName(),
             "cni_abonne" => '741258525852',
             "telephone_abonne" => fake()->phoneNumber(),
             "description_zone_abonne" => 'Lorem magna minim magna nisi.',
+            "secteur_abonne" => '2Lorem magna minim magna nisi.',
             "id_chef_secteur"  => 1,
             "type_abonnement"  => fake()->phoneNumber(),
         ]);

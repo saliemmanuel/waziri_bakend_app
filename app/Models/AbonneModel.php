@@ -14,7 +14,9 @@ class AbonneModel extends Model
         "cni_abonne",
         "telephone_abonne",
         "description_zone_abonne",
+        "secteur_abonne",
         "id_chef_secteur",
         "type_abonnement",
+        'id_type_abonnement'
     ];
 }

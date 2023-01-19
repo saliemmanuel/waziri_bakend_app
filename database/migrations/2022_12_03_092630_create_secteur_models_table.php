@@ -18,6 +18,10 @@ return new class extends Migration
             $table->string("designation_secteur")->unique();
             $table->string("description_secteur");
             $table->string("nom_chef_secteur")->unique();
+            $table->unsignedBigInteger("id_chef_secteur");
+            $table->foreign("id_chef_secteur")->references('id')->on('users')
+            ->onDelete('cascade');
+
             $table->timestamps();
         });
     }

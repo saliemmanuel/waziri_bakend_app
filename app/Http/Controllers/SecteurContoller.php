@@ -28,6 +28,8 @@ class SecteurContoller extends Controller
             'designation_secteur' => 'string|required',
             'description_secteur' => 'string|required',
             'nom_chef_secteur' => 'string|required',
+            'id_chef_secteur' => 'string|required'
+            
         ];
 
         $validator = Validator::make($request->all(), $rules);
@@ -41,6 +43,7 @@ class SecteurContoller extends Controller
                     'designation_secteur' => $request->designation_secteur,
                     'description_secteur' => $request->description_secteur,
                     'nom_chef_secteur' => $request->nom_chef_secteur,
+                    'id_chef_secteur' => $request->id_chef_secteur
                 ]
             );
             return response()->json(['message' => 'secteur créer avec succes', 'secteur' => $secteur], 200);
@@ -68,7 +71,8 @@ class SecteurContoller extends Controller
         $rules = [
             'designation_secteur' => 'string|required',
             'description_secteur' => 'string|required',
-            'nom_chef_secteur' => 'string|required'
+            'nom_chef_secteur' => 'string|required',
+            'id_chef_secteur' => 'string|required'
             
         ];
         $validator = Validator::make($request->all(), $rules);
