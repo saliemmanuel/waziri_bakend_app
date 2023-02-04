@@ -3,6 +3,8 @@
 use App\Http\Controllers\AbonneController;
 use App\Http\Controllers\CodeAdministrationController;
 use App\Http\Controllers\FactureController;
+use App\Http\Controllers\MaterielController;
+use App\Http\Controllers\PannesController;
 use App\Http\Controllers\SecteurContoller;
 use App\Http\Controllers\TypeAbonnementController;
 use App\Http\Controllers\UtilisateurController;
@@ -28,9 +30,10 @@ use Illuminate\Support\Facades\Route;
 
 // Utilisateur
 Route::post("utilisateur/connexion", [UtilisateurController::class, 'connexion']);
+
 // initiation du premier administrateur
 Route::post("utilisateur/add-admin", [UtilisateurController::class, 'store']);
-Route::any("utilisateur/index", [UtilisateurController::class, 'index'])->middleware('auth:sanctum');
+Route::post("utilisateur/index", [UtilisateurController::class, 'index'])->middleware('auth:sanctum');
 Route::get("utilisateur/show/{id}", [UtilisateurController::class, 'show'])->middleware('auth:sanctum');
 Route::post("utilisateur/ajout-user", [UtilisateurController::class, 'store'])->middleware('auth:sanctum');
 Route::get("utilisateur/deconnexion", [UtilisateurController::class, 'deconnexion'])->middleware('auth:sanctum');
@@ -57,7 +60,18 @@ Route::post('abonne/index', [AbonneController::class, 'index'])->middleware('aut
 Route::post('abonne/ajout-abonne', [AbonneController::class, 'store'])->middleware('auth:sanctum');
 Route::post('abonne/delete-abonne', [AbonneController::class, 'destroy'])->middleware('auth:sanctum');
 
-// Les facture 
+// Les factures
 Route::post('facture/index', [FactureController::class, 'index'])->middleware('auth:sanctum');
 Route::post('facture/generate-facture', [FactureController::class, 'genererFacture'])->middleware('auth:sanctum');
 Route::post('facture/payement', [FactureController::class, 'update'])->middleware('auth:sanctum');
+
+// Les matériels
+Route::get('materiel/index', [MaterielController::class, 'index'])->middleware('auth:sanctum');
+Route::post('materiel/store', [MaterielController::class, 'store'])->middleware('auth:sanctum');
+Route::post('materiel/destroy', [MaterielController::class, 'destroy'])->middleware('auth:sanctum');
+
+// Les pannes
+Route::get('pannes/index', [PannesController::class, 'index'])->middleware('auth:sanctum');
+Route::post('pannes/store', [PannesController::class, 'store'])->middleware('auth:sanctum');
+Route::post('pannes/destroy', [PannesController::class, 'destroy'])->middleware('auth:sanctum');
+

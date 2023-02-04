@@ -31,7 +31,7 @@ class FactureController extends Controller
                 return response()->json(['response' => 'Aucune facture disponible', 'error' => '1'], 400);
             return response()->json(['facture' => $facture, 'error' => '0'], 200);
         } else {
-            $facture = DB::select('SELECT fm.id as id_facture ,fm.*, 
+            $facture = DB::select('SELECT fm.id as id_facture ,fm.*,  fm.created_at as create_fm,
             am.id as id_abonnee, am.*, tm.*
             FROM `facture_models` fm ,`abonne_models` am, `type_abonnement_models` tm WHERE
             fm.id_abonne = am.id  AND am.id_type_abonnement = tm.id AND 

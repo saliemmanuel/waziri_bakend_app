@@ -49,8 +49,7 @@ class SecteurContoller extends Controller
             return response()->json(['message' => 'secteur créer avec succes', 'secteur' => $secteur], 200);
         } catch (\Throwable $th) {
             return response()->json([
-                // 'response' =>  "Désignation secteur existant. Error :" . $th,
-                'message' =>  'Désignation secteur existant.', 'error' => '1'
+                'message' =>  'Erreur lors de la création.', 'error' => '1'
             ], 400);
         }
     }
